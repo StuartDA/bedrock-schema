@@ -1,5 +1,5 @@
 {
-    "$id": "https://aexer0e.github.io/bedrock-schema/",
+    "$id": "https://stuartda.github.io/bedrock-schema/",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$ref": "#/definitions/Entity",
     "definitions": {
