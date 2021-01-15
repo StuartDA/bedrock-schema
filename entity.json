@@ -5177,6 +5177,7 @@
                             "value": {
                                 "$ref": "#/definitions/library/components/values/value",
                                 "description": "The speed movemebt of the entity.",
+                                "type": "number",
                                 "default": 0.2
                             }
                         }
