@@ -5303,7 +5303,19 @@
                         "type": "object"
                     },
                     "minecraft:physics": {
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "has_gravity": {
+                                "type": "boolean",
+                                "default": true,
+                                "description": "Whether the entity has gravity or not"
+                            },
+                            "has_collision": {
+                                "type": "boolean",
+                                "default": true,
+                                "description": "Whether the entity has collision or not"
+                            }
+                        }
                     },
                     "minecraft:player.saturation": {
                         "type": "object"
