@@ -327,6 +327,9 @@
                 "remove": {
                     "$ref": "#/definitions/event_remove"
                 },
+                "run_command": {
+                    "$ref": "#/definitions/event_run_command"
+                },
                 "sequence": {
                     "$ref": "#/definitions/event_sequence"
                 },
@@ -352,6 +355,20 @@
                 "component_groups": {
                     "type": "array",
                     "format": "string"
+                }
+            }
+        },
+        "event_run_command": {
+            "title": "Run Command",
+            "type": "object",
+            "properties": {
+                "command": {
+                    "type": "array",
+                    "format": "string"
+                },
+                "target": {
+                    "type": "string",
+                    "$ref": "#/definitions/library/filters/subjects"
                 }
             }
         },
