@@ -20,8 +20,7 @@
                         "1.14",
                         "1.15",
                         "1.16",
-                        1,
-                        2
+                        "1.16.100"
                     ]
                 },
                 "minecraft:entity": {
@@ -257,11 +256,7 @@
                     "properties": {
                         "animate": {
                             "type": "array",
-                            "items": {
-                                "examples": [
-                                    "execute_commands"
-                                ]
-                            }
+                            "items": {}
                         }
                     }
                 },
@@ -272,11 +267,7 @@
                             "type": "string"
                         }
                     },
-                    "properties": {
-                        "execute_commands": {
-                            "type": "string"
-                        }
-                    }
+                    "properties": {}
                 }
             }
         },
@@ -307,7 +298,7 @@
                 "minecraft:transformed": {
                     "$ref": "#/definitions/event"
                 },
-                "minecraf:minecraft:on_prime": {
+                "minecraft:on_prime": {
                     "$ref": "#/definitions/event"
                 }
             },
@@ -363,7 +354,10 @@
             "type": "object",
             "properties": {
                 "command": {
-                    "type": "array",
+                    "type": [
+                        "string",
+                        "array"
+                    ],
                     "format": "string"
                 },
                 "target": {
@@ -383,6 +377,9 @@
                     },
                     "remove": {
                         "$ref": "#/definitions/event_remove"
+                    },
+                    "run_command": {
+                        "$ref": "#/definitions/event_run_command"
                     },
                     "filters": {
                         "$ref": "#/definitions/filters"
@@ -410,6 +407,9 @@
                     },
                     "remove": {
                         "$ref": "#/definitions/event_remove"
+                    },
+                    "run_command": {
+                        "$ref": "#/definitions/event_run_command"
                     },
                     "sequence": {
                         "$ref": "#/definitions/event_sequence"
@@ -1671,27 +1671,27 @@
                     "minecraft:iron_shovel",
                     "minecraft:iron_sword",
                     "minecraft:iron_trapdoor",
-                    "minecraft:item.acacia_door",
-                    "minecraft:item.bed",
-                    "minecraft:item.beetroot",
-                    "minecraft:item.birch_door",
-                    "minecraft:item.cake",
-                    "minecraft:item.camera",
-                    "minecraft:item.campfire",
-                    "minecraft:item.cauldron",
-                    "minecraft:item.dark_oak_door",
-                    "minecraft:item.flower_pot",
-                    "minecraft:item.frame",
-                    "minecraft:item.hopper",
-                    "minecraft:item.iron_door",
-                    "minecraft:item.jungle_door",
-                    "minecraft:item.kelp",
-                    "minecraft:item.nether_wart",
-                    "minecraft:item.reeds",
-                    "minecraft:item.skull",
-                    "minecraft:item.spruce_door",
-                    "minecraft:item.wheat",
-                    "minecraft:item.wooden_door",
+                    "minecraft:acacia_door",
+                    "minecraft:bed",
+                    "minecraft:beetroot",
+                    "minecraft:birch_door",
+                    "minecraft:cake",
+                    "minecraft:camera",
+                    "minecraft:campfire",
+                    "minecraft:cauldron",
+                    "minecraft:dark_oak_door",
+                    "minecraft:flower_pot",
+                    "minecraft:frame",
+                    "minecraft:hopper",
+                    "minecraft:iron_door",
+                    "minecraft:jungle_door",
+                    "minecraft:kelp",
+                    "minecraft:nether_wart",
+                    "minecraft:reeds",
+                    "minecraft:skull",
+                    "minecraft:spruce_door",
+                    "minecraft:wheat",
+                    "minecraft:wooden_door",
                     "minecraft:jigsaw",
                     "minecraft:jukebox",
                     "minecraft:jungle_button",
@@ -4508,10 +4508,28 @@
                         "type": "object"
                     },
                     "minecraft:addrider": {
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "entity_type": {
+                                "type": "string",
+                                "$ref": "#/definitions/library/entities",
+                                "description": "List of entities to add as a rider"
+                            },
+                            "spawn_event": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "minecraft:admire_item": {
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "duration": {
+                                "$ref": "#/definitions/library/components/values/value"
+                            },
+                            "cooldown_after_being_attacked": {
+                                "$ref": "#/definitions/library/components/values/value"
+                            }
+                        }
                     },
                     "minecraft:ageable": {
                         "type": "object"
@@ -5190,7 +5208,7 @@
                         "description": "Additional variant value. Can be used to change the movement speed of entity",
                         "properties": {
                             "value": {
-                                "$ref": "#/definitions/library/components/values/value",
+                                "$ref": "#/definitions/library/components/values/value_decimal",
                                 "description": "The speed movemebt of the entity.",
                                 "type": "number",
                                 "default": 0.2
@@ -5561,7 +5579,14 @@
                         "type": "object"
                     },
                     "minecraft:transformation": {
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "into": {
+                                "type": [
+                                    "string"
+                                ]
+                            }
+                        }
                     },
                     "minecraft:trusting": {
                         "type": "object"
