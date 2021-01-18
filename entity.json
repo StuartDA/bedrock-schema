@@ -5481,10 +5481,7 @@
                                                 "default": 1
                                             },
                                             "rotate_rider_by": {
-                                                "type": [
-                                                    "string",
-                                                    "integer"
-                                                ]
+                                                "type": ["string", "number", "boolean"]
                                             },
                                             "lock_rider_rotation": {
                                                 "$ref": "#/definitions/library/components/values/value"
