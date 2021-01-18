@@ -5417,9 +5417,9 @@
                                         "position": {
                                             "type": "array",
                                             "default": [
-                                                32,
-                                                16,
-                                                32
+                                                0.0,
+                                                0.0,
+                                                0.0
                                             ]
                                         },
                                         "min_rider_count": {
