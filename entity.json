@@ -5395,49 +5395,103 @@
                     "minecraft:rideable": {
                         "type": "object",
                         "properties": {
-                            "seat_count": {
-                                "$ref": "#/definitions/library/components/values/value",
-                                "description": "The amount of sittable seats on the entity.",
-                                "default": 1
+                            "controlling_seat": {
+                                "description": "The seat that designates the driver of the entity.",
+                                "type": "number"
                             },
-                            "interact_text": {
-                                "type": "string",
-                                "description": "The text displayed on the interact of the entity."
+                            "crouching_skip_interact": {
+                                "description": "If true, this entity can't be interacted with if the entity interacting with it is crouching.",
+                                "type": "boolean"
                             },
-                            "pull_in_entities": {
-                                "type": "boolean",
-                                "description": "Can the entity pull other entites to fill the seats",
-                                "default": true
-                            },
-                            "seats": {
+                            "family_types": {
+                                "description": "List of entities that can ride this entity.",
                                 "type": "array",
                                 "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "position": {
-                                            "type": "array",
-                                            "default": [
-                                                0.0,
-                                                0.0,
-                                                0.0
-                                            ]
-                                        },
-                                        "min_rider_count": {
-                                            "$ref": "#/definitions/library/components/values/value",
-                                            "default": 0
-                                        },
-                                        "max_rider_count": {
-                                            "$ref": "#/definitions/library/components/values/value",
-                                            "default": 1
-                                        },
-                                        "rotate_rider_by": {
-                                            "type": ["string","integer"]
-                                        },
-                                        "lock_rider_rotation": {
-                                            "$ref": "#/definitions/library/components/values/value"
+                                    "type": "string"
+                                }
+                            },
+                            "interact_text": {
+                                "description": "The text to display when the player can interact with the entity when playing with Touch-screen controlsThe text to display when the player can interact with the entity when playing with Touch-screen controls.",
+                                "type": "string"
+                            },
+                            "pull_in_entities": {
+                                "description": "If true, this entity will pull in entities that are in the correct family_types into any available seats.",
+                                "type": "boolean"
+                            },
+                            "rider_can_interact": {
+                                "description": "If true, this entity will be picked when looked at by the rider.",
+                                "type": "boolean"
+                            },
+                            "seat_count": {
+                                "description": "The number of entities that can ride this entity at the same time.",
+                                "type": "number"
+                            },
+                            "seats": {
+                                "anyOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "position": {
+                                                    "type": "array",
+                                                    "minItems": 3,
+                                                    "maxItems": 3,
+                                                    "items": {
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "min_rider_count": {
+                                                    "$ref": "#/definitions/library/components/values/value",
+                                                    "default": 0
+                                                },
+                                                "max_rider_count": {
+                                                    "$ref": "#/definitions/library/components/values/value",
+                                                    "default": 1
+                                                },
+                                                "rotate_rider_by": {
+                                                    "type": [
+                                                        "string",
+                                                        "integer"
+                                                    ]
+                                                },
+                                                "lock_rider_rotation": {
+                                                    "$ref": "#/definitions/library/components/values/value"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "position": {
+                                                "type": "array",
+                                                "minItems": 3,
+                                                "maxItems": 3,
+                                                "items": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "min_rider_count": {
+                                                "$ref": "#/definitions/library/components/values/value",
+                                                "default": 0
+                                            },
+                                            "max_rider_count": {
+                                                "$ref": "#/definitions/library/components/values/value",
+                                                "default": 1
+                                            },
+                                            "rotate_rider_by": {
+                                                "type": [
+                                                    "string",
+                                                    "integer"
+                                                ]
+                                            },
+                                            "lock_rider_rotation": {
+                                                "$ref": "#/definitions/library/components/values/value"
+                                            }
                                         }
                                     }
-                                }
+                                ]
                             }
                         }
                     },
