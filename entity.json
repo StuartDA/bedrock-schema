@@ -5371,7 +5371,7 @@
                                 "$ref": "#/definitions/library/components/values/value_decimal",
                                 "default": 0.002,
                                 "description": "The value of the entity's push-through, in blocks"
-                            }
+                            },
                         }
                     },
                     "minecraft:preferred_path": {
@@ -5393,7 +5393,53 @@
                         "type": "object"
                     },
                     "minecraft:rideable": {
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "seat_count": {
+                                "$ref": "#/definitions/library/components/values/value_value",
+                                "description": "The amount of sittable seats on the entity.",
+                                "default": 1
+                            },
+                            "interact_text": {
+                                "type": "string",
+                                "description": "The text displayed on the interact of the entity."
+                            },
+                            "pull_in_entities": {
+                                "type": "boolean",
+                                "description": "Can the entity pull other entites to fill the seats",
+                                "default": true
+                            },
+                            "seats": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "position": {
+                                            "type": "array",
+                                            "default": [
+                                                32,
+                                                16,
+                                                32
+                                            ]
+                                        },
+                                        "min_rider_count": {
+                                            "$ref": "#/definitions/library/components/values/value_value",
+                                            "default": 0
+                                        },
+                                        "max_rider_count": {
+                                            "$ref": "#/definitions/library/components/values/value_value",
+                                            "default": 1
+                                        },
+                                        "rotate_rider_by": {
+                                            "$ref": "#/definitions/library/components/values/value_value"
+                                        },
+                                        "lock_rider_rotation": {
+                                            "$ref": "#/definitions/library/components/values/value_value"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "minecraft:scaffolding_climber": {
                         "type": "object"
