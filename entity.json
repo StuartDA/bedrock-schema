@@ -5396,7 +5396,7 @@
                         "type": "object",
                         "properties": {
                             "seat_count": {
-                                "$ref": "#/definitions/library/components/values/value_value",
+                                "$ref": "#/definitions/library/components/values/value",
                                 "description": "The amount of sittable seats on the entity.",
                                 "default": 1
                             },
@@ -5423,18 +5423,18 @@
                                             ]
                                         },
                                         "min_rider_count": {
-                                            "$ref": "#/definitions/library/components/values/value_value",
+                                            "$ref": "#/definitions/library/components/values/value",
                                             "default": 0
                                         },
                                         "max_rider_count": {
-                                            "$ref": "#/definitions/library/components/values/value_value",
+                                            "$ref": "#/definitions/library/components/values/value",
                                             "default": 1
                                         },
                                         "rotate_rider_by": {
-                                            "$ref": "#/definitions/library/components/values/value_value"
+                                            "type": ["string","integer"]
                                         },
                                         "lock_rider_rotation": {
-                                            "$ref": "#/definitions/library/components/values/value_value"
+                                            "$ref": "#/definitions/library/components/values/value"
                                         }
                                     }
                                 }
