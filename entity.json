@@ -1063,6 +1063,7 @@
                             "minecraft:damage_over_time",
                             "minecraft:damage_sensor",
                             "minecraft:default_look_angle",
+                            "minecraft:instant_despawn",
                             "minecraft:despawn",
                             "minecraft:dweller",
                             "minecraft:economy_trade_table",
@@ -5010,6 +5011,9 @@
                         "type": "object"
                     },
                     "minecraft:insomnia": {
+                        "type": "object"
+                    },
+                    "minecraft:instant_despawn":{
                         "type": "object"
                     },
                     "minecraft:interact": {
