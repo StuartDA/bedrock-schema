@@ -5689,6 +5689,10 @@
                             "into": {
                                 "type": [
                                     "string"
+                                ],
+                                "examples": [
+                                    "minecraft:",
+                                    "noxcrew:"
                                 ]
                             },
                             "delay": {
