@@ -20,8 +20,9 @@
                         "1.14",
                         "1.15",
                         "1.16",
-                        1,
-                        2
+                        "1.16.100",
+                        "1.16.200",
+                        "1.17"
                     ]
                 },
                 "minecraft:entity": {
@@ -257,11 +258,7 @@
                     "properties": {
                         "animate": {
                             "type": "array",
-                            "items": {
-                                "examples": [
-                                    "execute_commands"
-                                ]
-                            }
+                            "items": {}
                         }
                     }
                 },
@@ -272,11 +269,7 @@
                             "type": "string"
                         }
                     },
-                    "properties": {
-                        "execute_commands": {
-                            "type": "string"
-                        }
-                    }
+                    "properties": {}
                 }
             }
         },
@@ -307,7 +300,7 @@
                 "minecraft:transformed": {
                     "$ref": "#/definitions/event"
                 },
-                "minecraf:minecraft:on_prime": {
+                "minecraft:on_prime": {
                     "$ref": "#/definitions/event"
                 }
             },
@@ -363,7 +356,10 @@
             "type": "object",
             "properties": {
                 "command": {
-                    "type": "array",
+                    "type": [
+                        "string",
+                        "array"
+                    ],
                     "format": "string"
                 },
                 "target": {
@@ -383,6 +379,9 @@
                     },
                     "remove": {
                         "$ref": "#/definitions/event_remove"
+                    },
+                    "run_command": {
+                        "$ref": "#/definitions/event_run_command"
                     },
                     "filters": {
                         "$ref": "#/definitions/filters"
@@ -410,6 +409,9 @@
                     },
                     "remove": {
                         "$ref": "#/definitions/event_remove"
+                    },
+                    "run_command": {
+                        "$ref": "#/definitions/event_run_command"
                     },
                     "sequence": {
                         "$ref": "#/definitions/event_sequence"
@@ -1063,6 +1065,7 @@
                             "minecraft:damage_over_time",
                             "minecraft:damage_sensor",
                             "minecraft:default_look_angle",
+                            "minecraft:instant_despawn",
                             "minecraft:despawn",
                             "minecraft:dweller",
                             "minecraft:economy_trade_table",
@@ -1671,27 +1674,27 @@
                     "minecraft:iron_shovel",
                     "minecraft:iron_sword",
                     "minecraft:iron_trapdoor",
-                    "minecraft:item.acacia_door",
-                    "minecraft:item.bed",
-                    "minecraft:item.beetroot",
-                    "minecraft:item.birch_door",
-                    "minecraft:item.cake",
-                    "minecraft:item.camera",
-                    "minecraft:item.campfire",
-                    "minecraft:item.cauldron",
-                    "minecraft:item.dark_oak_door",
-                    "minecraft:item.flower_pot",
-                    "minecraft:item.frame",
-                    "minecraft:item.hopper",
-                    "minecraft:item.iron_door",
-                    "minecraft:item.jungle_door",
-                    "minecraft:item.kelp",
-                    "minecraft:item.nether_wart",
-                    "minecraft:item.reeds",
-                    "minecraft:item.skull",
-                    "minecraft:item.spruce_door",
-                    "minecraft:item.wheat",
-                    "minecraft:item.wooden_door",
+                    "minecraft:acacia_door",
+                    "minecraft:bed",
+                    "minecraft:beetroot",
+                    "minecraft:birch_door",
+                    "minecraft:cake",
+                    "minecraft:camera",
+                    "minecraft:campfire",
+                    "minecraft:cauldron",
+                    "minecraft:dark_oak_door",
+                    "minecraft:flower_pot",
+                    "minecraft:frame",
+                    "minecraft:hopper",
+                    "minecraft:iron_door",
+                    "minecraft:jungle_door",
+                    "minecraft:kelp",
+                    "minecraft:nether_wart",
+                    "minecraft:reeds",
+                    "minecraft:skull",
+                    "minecraft:spruce_door",
+                    "minecraft:wheat",
+                    "minecraft:wooden_door",
                     "minecraft:jigsaw",
                     "minecraft:jukebox",
                     "minecraft:jungle_button",
@@ -4508,10 +4511,28 @@
                         "type": "object"
                     },
                     "minecraft:addrider": {
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "entity_type": {
+                                "type": "string",
+                                "$ref": "#/definitions/library/entities",
+                                "description": "List of entities to add as a rider"
+                            },
+                            "spawn_event": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "minecraft:admire_item": {
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "duration": {
+                                "$ref": "#/definitions/library/components/values/value"
+                            },
+                            "cooldown_after_being_attacked": {
+                                "$ref": "#/definitions/library/components/values/value"
+                            }
+                        }
                     },
                     "minecraft:ageable": {
                         "type": "object"
@@ -4692,36 +4713,34 @@
                                         "description": "Defines what sound to play, if any, when the on_damage filters are met."
                                     }
                                 },
-                                "items": [
-                                    {
-                                        "properties": {
-                                            "cause": {
-                                                "type": "string",
-                                                "$ref": "#/definitions/library/filters/domains/has_damage",
-                                                "default": "none",
-                                                "description": "Type of damage that triggers the events."
-                                            },
-                                            "damage_multiplier": {
-                                                "type": "number",
-                                                "default": 1.0,
-                                                "description": "A multiplier that modifies the base damage from the damage cause. If deals_damage is true the multiplier can only reduce the damage the entity will take to a minimum of 1."
-                                            },
-                                            "deals_damage": {
-                                                "type": "boolean",
-                                                "default": true,
-                                                "description": "If true, the damage dealt to the entity will take away health from it, set to false to make the entity ignore that damage."
-                                            },
-                                            "on_damage": {
-                                                "$ref": "#/definitions/library/components/values/trigger",
-                                                "filters": "Specifies filters for entity definitions and events."
-                                            },
-                                            "on_damage_sound_event": {
-                                                "type": "string",
-                                                "description": "Defines what sound to play, if any, when the on_damage filters are met."
-                                            }
+                                "items": {
+                                    "properties": {
+                                        "cause": {
+                                            "type": "string",
+                                            "$ref": "#/definitions/library/filters/domains/has_damage",
+                                            "default": "none",
+                                            "description": "Type of damage that triggers the events."
+                                        },
+                                        "damage_multiplier": {
+                                            "type": "number",
+                                            "default": 1.0,
+                                            "description": "A multiplier that modifies the base damage from the damage cause. If deals_damage is true the multiplier can only reduce the damage the entity will take to a minimum of 1."
+                                        },
+                                        "deals_damage": {
+                                            "type": "boolean",
+                                            "default": true,
+                                            "description": "If true, the damage dealt to the entity will take away health from it, set to false to make the entity ignore that damage."
+                                        },
+                                        "on_damage": {
+                                            "$ref": "#/definitions/library/components/values/trigger",
+                                            "filters": "Specifies filters for entity definitions and events."
+                                        },
+                                        "on_damage_sound_event": {
+                                            "type": "string",
+                                            "description": "Defines what sound to play, if any, when the on_damage filters are met."
                                         }
                                     }
-                                ]
+                                }
                             }
                         }
                     },
@@ -4996,6 +5015,9 @@
                     "minecraft:insomnia": {
                         "type": "object"
                     },
+                    "minecraft:instant_despawn":{
+                        "type": "object"
+                    },
                     "minecraft:interact": {
                         "type": "object",
                         "description": "Defines interactions with this entity.",
@@ -5190,7 +5212,7 @@
                         "description": "Additional variant value. Can be used to change the movement speed of entity",
                         "properties": {
                             "value": {
-                                "$ref": "#/definitions/library/components/values/value",
+                                "$ref": "#/definitions/library/components/values/value_decimal",
                                 "description": "The speed movemebt of the entity.",
                                 "type": "number",
                                 "default": 0.2
@@ -5303,7 +5325,19 @@
                         "type": "object"
                     },
                     "minecraft:physics": {
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "has_gravity": {
+                                "type": "boolean",
+                                "default": true,
+                                "description": "Whether the entity has gravity or not"
+                            },
+                            "has_collision": {
+                                "type": "boolean",
+                                "default": true,
+                                "description": "Whether the entity has collision or not"
+                            }
+                        }
                     },
                     "minecraft:player.saturation": {
                         "type": "object"
@@ -5363,7 +5397,108 @@
                         "type": "object"
                     },
                     "minecraft:rideable": {
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "controlling_seat": {
+                                "description": "The seat that designates the driver of the entity.",
+                                "type": "number"
+                            },
+                            "crouching_skip_interact": {
+                                "description": "If true, this entity can't be interacted with if the entity interacting with it is crouching.",
+                                "type": "boolean"
+                            },
+                            "family_types": {
+                                "description": "List of entities that can ride this entity.",
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "interact_text": {
+                                "description": "The text to display when the player can interact with the entity when playing with Touch-screen controlsThe text to display when the player can interact with the entity when playing with Touch-screen controls.",
+                                "type": "string"
+                            },
+                            "pull_in_entities": {
+                                "description": "If true, this entity will pull in entities that are in the correct family_types into any available seats.",
+                                "type": "boolean"
+                            },
+                            "rider_can_interact": {
+                                "description": "If true, this entity will be picked when looked at by the rider.",
+                                "type": "boolean"
+                            },
+                            "seat_count": {
+                                "description": "The number of entities that can ride this entity at the same time.",
+                                "type": "number"
+                            },
+                            "seats": {
+                                "anyOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "position": {
+                                                    "type": "array",
+                                                    "minItems": 3,
+                                                    "maxItems": 3,
+                                                    "items": {
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "min_rider_count": {
+                                                    "$ref": "#/definitions/library/components/values/value",
+                                                    "default": 0
+                                                },
+                                                "max_rider_count": {
+                                                    "$ref": "#/definitions/library/components/values/value",
+                                                    "default": 1
+                                                },
+                                                "rotate_rider_by": {
+                                                    "type": [
+                                                        "string",
+                                                        "integer"
+                                                    ]
+                                                },
+                                                "lock_rider_rotation": {
+                                                    "$ref": "#/definitions/library/components/values/value"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "position": {
+                                                "type": "array",
+                                                "minItems": 3,
+                                                "maxItems": 3,
+                                                "items": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "min_rider_count": {
+                                                "$ref": "#/definitions/library/components/values/value",
+                                                "default": 0
+                                            },
+                                            "max_rider_count": {
+                                                "$ref": "#/definitions/library/components/values/value",
+                                                "default": 1
+                                            },
+                                            "rotate_rider_by": {
+                                                "type": [
+                                                    "string",
+                                                    "number",
+                                                    "boolean"
+                                                ]
+                                            },
+                                            "lock_rider_rotation": {
+                                                "$ref": "#/definitions/library/components/values/value"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
                     },
                     "minecraft:scaffolding_climber": {
                         "type": "object"
@@ -5549,7 +5684,24 @@
                         "type": "object"
                     },
                     "minecraft:transformation": {
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "into": {
+                                "type": [
+                                    "string"
+                                ]
+                            },
+                            "delay": {
+                                "type": "number",
+                                "default": 1.0,
+                                "description": "Determines the amount of time in seconds that this mob will wait before transforming"
+                            },
+                            "keep_owner": {
+                                "type": "boolean",
+                                "default": false,
+                                "description": "If true, the mob will keep it's current owner"
+                            }
+                        }
                     },
                     "minecraft:trusting": {
                         "type": "object"
