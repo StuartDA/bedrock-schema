@@ -300,7 +300,16 @@
                 "minecraft:transformed": {
                     "$ref": "#/definitions/event"
                 },
-                "minecraft:on_prime": {
+                "noxcrew:add_": {
+                    "$ref": "#/definitions/event"
+                },
+                "noxcrew:remove": {
+                    "$ref": "#/definitions/event"
+                },
+                "noxcrew:to_": {
+                    "$ref": "#/definitions/event"
+                },
+                "noxcrew:": {
                     "$ref": "#/definitions/event"
                 }
             },
