@@ -1,0 +1,151 @@
+{
+    "$id": "https://stuartda.github.io/bedrock-schema/",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$ref": "#/definitions/dialogue",
+    "definitions": {
+        "dialogue": {
+            "type": "object",
+            "properties": {
+                "format_version": {
+                    "type": [
+                        "string",
+                        "number"
+                    ],
+                    "format": "number",
+                    "examples": [
+                        "1.17"
+                    ]
+                },
+                "minecraft:npc_dialogue": {
+                    "$ref": "#/definitions/npc_dialogue"
+                }
+            }
+        },
+        "npc_dialogue": {
+            "title": "NPC Dialogue",
+            "type": "object",
+            "properties": {
+                "scenes": {
+                    "$ref": "#/definitions/description"
+                }
+            }
+        },
+        "scenes": {
+            "title": "Scenes",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "scene_tag": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "on_open_commands": {
+                        "type": [
+                            "array"
+                        ],
+                        "format": "string"
+                    },
+                    "on_close_commands": {
+                        "type": [
+                            "array"
+                        ],
+                        "format": "string"
+                    },
+                    "buttons": {
+                        "title": "Sequence",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": [
+                                        "string"
+                                    ]
+                                },
+                                "commands": {
+                                    "type": [
+                                        "array"
+                                    ],
+                                    "format": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "event_run_command": {
+            "title": "Run Command",
+            "type": "object",
+            "properties": {
+                "command": {
+                    "type": [
+                        "string",
+                        "array"
+                    ],
+                    "format": "string"
+                },
+                "target": {
+                    "type": "string"
+                }
+            }
+        },
+        "event_sequence": {
+            "title": "Sequence",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "add": {
+                        "$ref": "#/definitions/event_add"
+                    },
+                    "remove": {
+                        "$ref": "#/definitions/event_remove"
+                    },
+                    "run_command": {
+                        "$ref": "#/definitions/event_run_command"
+                    },
+                    "filters": {
+                        "$ref": "#/definitions/filters"
+                    },
+                    "sequence": {
+                        "$ref": "#/definitions/event_sequence"
+                    },
+                    "randomize": {
+                        "$ref": "#/definitions/event_randomize"
+                    }
+                }
+            }
+        },
+        "event_randomize": {
+            "title": "Randomize",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "weight": {
+                        "type": "integer"
+                    },
+                    "add": {
+                        "$ref": "#/definitions/event_add"
+                    },
+                    "remove": {
+                        "$ref": "#/definitions/event_remove"
+                    },
+                    "run_command": {
+                        "$ref": "#/definitions/event_run_command"
+                    },
+                    "sequence": {
+                        "$ref": "#/definitions/event_sequence"
+                    },
+                    "randomize": {
+                        "$ref": "#/definitions/event_randomize"
+                    }
+                }
+            }
+        }
+    }
+}
