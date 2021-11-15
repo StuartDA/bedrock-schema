@@ -1251,6 +1251,7 @@
                     },
                     "has_damage": {
                         "examples": [
+                            "all",
                             "anvil",
                             "attack",
                             "block_explosion",
@@ -2463,6 +2464,7 @@
                     "minecraft:area_effect_cloud",
                     "minecraft:armor_stand",
                     "minecraft:arrow",
+                    "minecraft:axolotl",
                     "minecraft:balloon",
                     "minecraft:bat",
                     "minecraft:bee",
@@ -2497,16 +2499,17 @@
                     "minecraft:fishing_hook",
                     "minecraft:fox",
                     "minecraft:ghast",
+                    "minecraft:glow_squid",
+                    "minecraft:goat",
                     "minecraft:guardian",
+                    "minecraft:hoglin",
                     "minecraft:hopper_minecart",
                     "minecraft:horse",
                     "minecraft:husk",
-                    "minecraft:ice_bomb",
                     "minecraft:iron_golem",
                     "minecraft:item",
                     "minecraft:leash_knot",
                     "minecraft:lightning_bolt",
-                    "minecraft:lingering_potion",
                     "minecraft:llama",
                     "minecraft:llama_spit",
                     "minecraft:magma_cube",
@@ -2520,6 +2523,8 @@
                     "minecraft:parrot",
                     "minecraft:phantom",
                     "minecraft:pig",
+                    "minecraft:piglin",
+                    "minecraft:piglin_brute",
                     "minecraft:pillager",
                     "minecraft:player",
                     "minecraft:polar_bear",
@@ -2541,6 +2546,7 @@
                     "minecraft:splash_potion",
                     "minecraft:squid",
                     "minecraft:stray",
+                    "minecraft:strider",
                     "minecraft:thrown_trident",
                     "minecraft:tnt",
                     "minecraft:tnt_minecart",
@@ -5550,10 +5556,68 @@
                         }
                     },
                     "minecraft:spawn_entity": {
-                        "type": [
-                            "object",
-                            "array"
-                        ]
+                        "type": "object",
+                        "description": "Defines what events to call when this entity is damaged by specific entities or items.",
+                        "properties": {
+                            "entities": {
+                                "type": [
+                                    "array",
+                                    "object"
+                                ],
+                                "properties": {
+                                    "min_wait_time": {
+                                        "type": "integer",
+                                        "description": "Minimum amount of time to randomly wait in seconds before another entity is spawned.",
+                                        "default": 300
+                                    },
+                                    "max_wait_time": {
+                                        "type": "integer",
+                                        "description": "Maximum amount of time to randomly wait in seconds before another entity is spawned.",
+                                        "default": 600
+                                    },
+                                    "num_to_spawn": {
+                                        "type": "integer",
+                                        "description": "The number of entities of this type to spawn each time that this triggers.",
+                                        "default": 1
+                                    },
+                                    "should_leash": {
+                                        "type": "boolean",
+                                        "default": false,
+                                        "description": "If true, the spawned entity will be leashed to the parent."
+                                    },
+                                    "single_use": {
+                                        "type": "boolean",
+                                        "default": false,
+                                        "description": "If true, this component will only ever spawn the specified entity once."
+                                    },
+                                    "spawn_entity": {
+                                        "type": "string",
+                                        "$ref": "#/definitions/library/entities",
+                                        "description": "Identifier of the entity to spawn."
+                                    },
+                                    "spawn_event": {
+                                        "type": "string",
+                                        "default": "none",
+                                        "description": "Event to call when the entity is spawned."
+                                    },
+                                    "spawn_item": {
+                                        "type": "string",
+                                        "default": "none",
+                                        "description": "Identifier of the item to spawn."
+                                    },
+                                    "spawn_method": {
+                                        "type": "string",
+                                        "default": "none",
+                                        "description": "Method to use to spawn the entity."
+                                    },
+                                    "spawn_sound": {
+                                        "type": "string",
+                                        "default": "none",
+                                        "description": "Identifier of the sound effect to play when the entity is spawned."
+                                    }
+                                }
+                            }
+                        }
                     },
                     "minecraft:spell_effects": {
                         "type": "object"

@@ -42,8 +42,17 @@
                             "object"
                         ]
                     },
+                    "npc_name": {
+                        "type": [
+                            "string",
+                            "object"
+                        ]
+                    },
                     "text": {
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "object"
+                        ]
                     },
                     "on_open_commands": {
                         "type": [
@@ -76,76 +85,6 @@
                                 }
                             }
                         }
-                    }
-                }
-            }
-        },
-        "event_run_command": {
-            "title": "Run Command",
-            "type": "object",
-            "properties": {
-                "command": {
-                    "type": [
-                        "string",
-                        "array"
-                    ],
-                    "format": "string"
-                },
-                "target": {
-                    "type": "string"
-                }
-            }
-        },
-        "event_sequence": {
-            "title": "Sequence",
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "add": {
-                        "$ref": "#/definitions/event_add"
-                    },
-                    "remove": {
-                        "$ref": "#/definitions/event_remove"
-                    },
-                    "run_command": {
-                        "$ref": "#/definitions/event_run_command"
-                    },
-                    "filters": {
-                        "$ref": "#/definitions/filters"
-                    },
-                    "sequence": {
-                        "$ref": "#/definitions/event_sequence"
-                    },
-                    "randomize": {
-                        "$ref": "#/definitions/event_randomize"
-                    }
-                }
-            }
-        },
-        "event_randomize": {
-            "title": "Randomize",
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "weight": {
-                        "type": "integer"
-                    },
-                    "add": {
-                        "$ref": "#/definitions/event_add"
-                    },
-                    "remove": {
-                        "$ref": "#/definitions/event_remove"
-                    },
-                    "run_command": {
-                        "$ref": "#/definitions/event_run_command"
-                    },
-                    "sequence": {
-                        "$ref": "#/definitions/event_sequence"
-                    },
-                    "randomize": {
-                        "$ref": "#/definitions/event_randomize"
                     }
                 }
             }
