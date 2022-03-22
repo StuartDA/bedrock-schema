@@ -3639,6 +3639,16 @@
                                 "type": "integer",
                                 "default": 6,
                                 "description": "The strength of the knockback."
+                            },
+                            "knockback_vertical_strength": {
+                                "type": "integer",
+                                "default": 4,
+                                "description": "The strength of the knockback vertically."
+                            },
+                            "knockback_horizontal_strength": {
+                                "type": "integer",
+                                "default": 4,
+                                "description": "The strength of the knockback horizontally."
                             }
                         }
                     },
