@@ -22,7 +22,9 @@
                         "1.16",
                         "1.16.100",
                         "1.16.200",
-                        "1.17"
+                        "1.17",
+                        "1.18",
+                        "1.18.10"
                     ]
                 },
                 "minecraft:entity": {
@@ -3704,7 +3706,7 @@
                                 "$ref": "#/definitions/library/components/values/set_persistent"
                             },
                             "yd": {
-                                "type": "decimal",
+                                "type": "integer",
                                 "default": 0.0,
                                 "description": "The height in blocks the mob jumps when leaping at its target"
                             }
