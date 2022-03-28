@@ -305,7 +305,7 @@
                 "noxcrew:add_": {
                     "$ref": "#/definitions/event"
                 },
-                "noxcrew:remove": {
+                "noxcrew:remove_": {
                     "$ref": "#/definitions/event"
                 },
                 "noxcrew:to_": {
