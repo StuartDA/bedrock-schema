@@ -3716,7 +3716,7 @@
                                 "$ref": "#/definitions/library/components/values/set_persistent"
                             },
                             "yd": {
-                                "type": "integer",
+                                "type": "number",
                                 "default": 0.0,
                                 "description": "The height in blocks the mob jumps when leaping at its target"
                             }
