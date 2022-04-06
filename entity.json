@@ -445,7 +445,8 @@
                         "player",
                         "target",
                         "parent",
-                        "blocks"
+                        "blocks",
+                        "damager"
                     ]
                 },
                 "test": {
