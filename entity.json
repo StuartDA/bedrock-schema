@@ -4879,7 +4879,7 @@
 								"type": [
 									"array"
 								],
-								"properties": {
+								"items": {
 									"height": {
 										"type": "number",
 										"description": "Height of the hitbox in blocks. A negative value will be assumed to be 0."
