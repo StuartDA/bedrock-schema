@@ -5895,58 +5895,6 @@
 									"array",
 									"object"
 								],
-								"properties": {
-									"min_wait_time": {
-										"type": "integer",
-										"description": "Minimum amount of time to randomly wait in seconds before another entity is spawned.",
-										"default": 300
-									},
-									"max_wait_time": {
-										"type": "integer",
-										"description": "Maximum amount of time to randomly wait in seconds before another entity is spawned.",
-										"default": 600
-									},
-									"num_to_spawn": {
-										"type": "integer",
-										"description": "The number of entities of this type to spawn each time that this triggers.",
-										"default": 1
-									},
-									"should_leash": {
-										"type": "boolean",
-										"default": false,
-										"description": "If true, the spawned entity will be leashed to the parent."
-									},
-									"single_use": {
-										"type": "boolean",
-										"default": false,
-										"description": "If true, this component will only ever spawn the specified entity once."
-									},
-									"spawn_entity": {
-										"type": "string",
-										"$ref": "#/definitions/library/entities",
-										"description": "Identifier of the entity to spawn."
-									},
-									"spawn_event": {
-										"type": "string",
-										"default": "none",
-										"description": "Event to call when the entity is spawned."
-									},
-									"spawn_item": {
-										"type": "string",
-										"default": "none",
-										"description": "Identifier of the item to spawn."
-									},
-									"spawn_method": {
-										"type": "string",
-										"default": "none",
-										"description": "Method to use to spawn the entity."
-									},
-									"spawn_sound": {
-										"type": "string",
-										"default": "none",
-										"description": "Identifier of the sound effect to play when the entity is spawned."
-									}
-								},
 								"items": {
 									"properties": {
 										"min_wait_time": {
