@@ -5610,7 +5610,125 @@
 						"type": "object"
 					},
 					"minecraft:projectile": {
-						"type": "object"
+						"type": "object",
+						"properties": {
+							"angle_offset": {
+								"type": "number",
+								"default": 0
+							},
+							"catch_fire": {
+								"type": "boolean",
+								"default": false
+							},
+							"crit_particle_on_hurt": {
+								"type": "boolean",
+								"default": false
+							},
+							"destroy_on_hurt": {
+								"type": "boolean",
+								"default": false
+							},
+							"filter": {
+								"$ref": "#/definitions/filters"
+							},
+							"fire_affected_by_griefing": {
+								"type": "boolean",
+								"default": false
+							},
+							"gravity": {
+								"type": "number",
+								"default": 0.05
+							},
+							"hit_sound": {
+								"type": "string"
+							},
+							"homing": {
+								"type": "boolean",
+								"default": false
+							},
+							"inertia": {
+								"type": "number",
+								"default": 0.99
+							},
+							"is_dangerous": {
+								"type": "boolean",
+								"default": false
+							},
+							"knockback": {
+								"type": "boolean",
+								"default": true
+							},
+							"lightning": {
+								"type": "boolean",
+								"default": false
+							},
+							"liquid_inertia": {
+								"type": "number",
+								"default": 0.6
+							},
+							"multiple_targets": {
+								"type": "boolean",
+								"default": true
+							},
+							"offset": {
+								"type": "array",
+								"minItems": 3,
+								"maxItems": 3,
+								"items": {
+									"type": "number"
+								}
+							},
+							"on_fire_time": {
+								"type": "number",
+								"default": 5
+							},
+							"particle": {
+								"type": "string"
+							},
+							"potion_effect": {
+								"type": "integer",
+								"default": -1
+							},
+							"power": {
+								"type": "number",
+								"default": 1.3
+							},
+							"reflect_on_hurt": {
+								"type": "boolean",
+								"default": false
+							},
+							"semi_random_diff_damage": {
+								"type": "boolean",
+								"default": false
+							},
+							"shoot_sound": {
+								"type": "string"
+							},
+							"shoot_target": {
+								"type": "boolean",
+								"default": true
+							},
+							"should_bounce": {
+								"type": "boolean",
+								"default": false
+							},
+							"splash_potion": {
+								"type": "boolean",
+								"default": false
+							},
+							"splash_range": {
+								"type": "number",
+								"default": 4
+							},
+							"uncertainty_base": {
+								"type": "number",
+								"default": 0
+							},
+							"uncertainty_multiplier": {
+								"type": "number",
+								"default": 0
+							}
+						}
 					},
 					"minecraft:raid_trigger": {
 						"type": "object"
