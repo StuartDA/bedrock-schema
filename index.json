@@ -447,7 +447,7 @@
 						"target",
 						"parent",
 						"blocks",
-                        "damager"
+						"damager"
 					]
 				},
 				"test": {
@@ -4872,7 +4872,34 @@
 						}
 					},
 					"minecraft:custom_hit_test": {
-						"type": "object"
+						"type": "object",
+						"description": "Defines a list of hitboxes for melee and ranged hits against the entity.",
+						"properties": {
+							"hitboxes": {
+								"type": [
+									"array"
+								],
+								"properties": {
+									"height": {
+										"type": "number",
+										"description": "Height of the hitbox in blocks. A negative value will be assumed to be 0."
+									},
+									"width": {
+										"type": "number",
+										"description": "Width and Depth of the hitbox in blocks. A negative value will be assumed to be 0."
+									},
+									"pivot": {
+										"type": "array",
+										"minItems": 3,
+										"maxItems": 3,
+										"items": {
+											"type": "number"
+										},
+										"description": "The offset from the entity's anchor where the hitbox will spawn"
+									}
+								}
+							}
+						}
 					},
 					"minecraft:damage_over_time": {
 						"type": "object"
