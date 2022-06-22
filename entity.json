@@ -4880,7 +4880,6 @@
 									"array"
 								],
 								"items": {
-									"type": "object",
 									"properties": {
 										"height": {
 											"type": "number",
