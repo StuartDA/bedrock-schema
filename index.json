@@ -681,6 +681,27 @@
 							"test": {
 								"anyOf": [
 									{
+										"const": "has_mob_effect"
+									}
+								]
+							}
+						}
+					},
+					"then": {
+						"properties": {
+							"value": {
+								"type": "string",
+								"$ref": "#/definitions/library/filters/values/mob_effects"
+							}
+						}
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"test": {
+								"anyOf": [
+									{
 										"const": "is_game_rule"
 									}
 								]
@@ -941,6 +962,39 @@
 							"noclip",
 							"walkspeed",
 							"worldbuilder"
+						]
+					},
+					"mob_effects": {
+						"enum": [
+							"absorption",
+							"blindness",
+							"conduit_power",
+							"darkness",
+							"fatal_poison",
+							"fire_resistance",
+							"haste",
+							"health_boost",
+							"village_hero",
+							"hunger",
+							"instant_damage",
+							"instant_health",
+							"invisibility",
+							"jump_boost",
+							"levitation",
+							"mining_fatigue",
+							"nausea",
+							"night_vision",
+							"poison",
+							"regeneration",
+							"resistance",
+							"saturation",
+							"slow_falling",
+							"slowness",
+							"speed",
+							"strength",
+							"water_breathing",
+							"weakness",
+							"wither"
 						]
 					},
 					"components": {
