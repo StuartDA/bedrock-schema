@@ -5165,7 +5165,7 @@
 						"type": "object"
 					},
 					"minecraft:fire_immune": {
-						"type": "boolean"
+						"type": "object"
 					},
 					"minecraft:floats_in_liquid": {
 						"type": "object"

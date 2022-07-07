@@ -5165,7 +5165,7 @@
 						"type": "object"
 					},
 					"minecraft:fire_immune": {
-						"type": "boolean"
+						"type": "object"
 					},
 					"minecraft:floats_in_liquid": {
 						"type": "object"
@@ -5666,6 +5666,10 @@
 					"minecraft:projectile": {
 						"type": "object",
 						"properties": {
+							"anchor": {
+								"type": "number",
+								"default": 0
+							},
 							"angle_offset": {
 								"type": "number",
 								"default": 0
@@ -5735,6 +5739,62 @@
 							"on_fire_time": {
 								"type": "number",
 								"default": 5
+							},
+							"on_hit": {
+								"type": "object",
+								"properties": {
+									"impact_damage": {
+										"type": "object",
+										"properties": {
+											"damage": {
+												"type": [
+													"number",
+													"array"
+												],
+												"minItems": 2,
+												"maxItems": 2,
+												"items": {
+													"type": "number"
+												}
+											},
+											"knockback": {
+												"type": "boolean"
+											},
+											"should_bounce": {
+												"type": "boolean"
+											}
+										}
+									},
+									"mob_effect": {
+										"type": "object",
+										"properties": {
+											"effect": {
+												"$ref": "#/definitions/library/filters/values/mob_effects"
+											},
+											"durationeasy": {
+												"type": "number"
+											},
+											"durationnormal": {
+												"type": "number"
+											},
+											"durationhard": {
+												"type": "number"
+											},
+											"amplifier": {
+												"type": "integer"
+											}
+										}
+									},
+									"remove_on_hit": {
+										"type": "object"
+									},
+									"stick_in_ground": {
+										"type": "object"
+									},
+									"arrow_effect": {
+										"type": "object"
+									}
+								}
 							},
 							"particle": {
 								"type": "string"
