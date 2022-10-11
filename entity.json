@@ -5110,8 +5110,7 @@
 									{
 										"$ref": "#/definitions/library/components/values/trigger"
 									}
-								],
-								"$ref": "#/definitions/library/components/values/trigger"
+								]
 							}
 						}
 					},
