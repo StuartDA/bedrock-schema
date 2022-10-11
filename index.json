@@ -4751,7 +4751,44 @@
 										"type": "number",
 										"default": 0.0
 									}
+								},
+								"items": {
+								"properties": {
+									"cast_duration":{
+										"type": "number"
+									},
+									"cooldown_time":{
+										"type": "number",
+										"default": 0.0
+									},
+									"do_casting":{
+										"type": "boolean",
+										"default": true
+									},
+									"filters":{
+										"$ref": "#/definitions/filters"
+									},
+									"min_activation_range":{
+										"type": "number",
+										"default": 32.0
+									},
+									"max_activation_range":{
+										"type": "number",
+										"default": 1.0
+									},
+									"particle_color":{
+										"type": "integer",
+										"default": 0
+									},
+									"start_sound_event":{
+										"type": "string"
+									},
+									"weight":{
+										"type": "number",
+										"default": 0.0
+									}
 								}
+							}
 							}
 						}
 					},
