@@ -4717,7 +4717,7 @@
 									"array",
 									"object"
 								],
-								"properties": {
+								"items": {
 									"cast_duration":{
 										"type": "number"
 									},
@@ -4756,7 +4756,7 @@
 											"array",
 											"object"
 										],
-										"properties": {
+										"items": {
 											"base_delay":{
 												"type": "number",
 												"default": 0.0
