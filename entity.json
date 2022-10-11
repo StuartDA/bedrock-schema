@@ -4750,45 +4750,261 @@
 									"weight":{
 										"type": "number",
 										"default": 0.0
+									},
+									"sequence":{
+										"type": [
+											"array",
+											"object"
+										],
+										"properties": {
+											"base_delay":{
+												"type": "number",
+												"default": 0.0
+											},
+											"delay_per_summon":{
+												"type": "number",
+												"default": 0.0
+											},
+											"entity_lifespan":{
+												"type": "number",
+												"default": -1.0
+											},
+											"entity_type": {
+												"type": "string",
+												"$ref": "#/definitions/library/entities"
+											},
+											"num_entities_spawned":{
+												"type": "integer",
+												"default": 1
+											},
+											"shape":{
+												"type": "string",
+												"default": "line",
+												"enum": [
+													"line",
+													"circle"
+												]
+											},
+											"size":{
+												"type": "number",
+												"default": 1.0
+											},
+											"sound_event":{
+												"type": "string"
+											},
+											"summon_cap":{
+												"type": "integer",
+												"default": 1
+											},
+											"summon_cap_radius":{
+												"type": "number",
+												"default": 0.0
+											},
+											"target": {
+												"type": "string",
+												"$ref": "#/definitions/library/filters/subjects",
+												"description": "The target of the spell. This is where the spell will start (line will start here, circle will be centered here)"
+											}
+										},
+										"items": {
+											"properties": {
+												"base_delay":{
+													"type": "number",
+													"default": 0.0
+												},
+												"delay_per_summon":{
+													"type": "number",
+													"default": 0.0
+												},
+												"entity_lifespan":{
+													"type": "number",
+													"default": -1.0
+												},
+												"entity_type": {
+													"type": "string",
+													"$ref": "#/definitions/library/entities"
+												},
+												"num_entities_spawned":{
+													"type": "integer",
+													"default": 1
+												},
+												"shape":{
+													"type": "string",
+													"default": "line",
+													"enum": [
+														"line",
+														"circle"
+													]
+												},
+												"size":{
+													"type": "number",
+													"default": 1.0
+												},
+												"sound_event":{
+													"type": "string"
+												},
+												"summon_cap":{
+													"type": "integer",
+													"default": 1
+												},
+												"summon_cap_radius":{
+													"type": "number",
+													"default": 0.0
+												},
+												"target": {
+													"type": "string",
+													"$ref": "#/definitions/library/filters/subjects",
+													"description": "The target of the spell. This is where the spell will start (line will start here, circle will be centered here)"
+												}
+											}
+										}
 									}
 								},
 								"items": {
-								"properties": {
-									"cast_duration":{
-										"type": "number"
-									},
-									"cooldown_time":{
-										"type": "number",
-										"default": 0.0
-									},
-									"do_casting":{
-										"type": "boolean",
-										"default": true
-									},
-									"filters":{
-										"$ref": "#/definitions/filters"
-									},
-									"min_activation_range":{
-										"type": "number",
-										"default": 32.0
-									},
-									"max_activation_range":{
-										"type": "number",
-										"default": 1.0
-									},
-									"particle_color":{
-										"type": "integer",
-										"default": 0
-									},
-									"start_sound_event":{
-										"type": "string"
-									},
-									"weight":{
-										"type": "number",
-										"default": 0.0
+									"properties": {
+										"cast_duration":{
+											"type": "number"
+										},
+										"cooldown_time":{
+											"type": "number",
+											"default": 0.0
+										},
+										"do_casting":{
+											"type": "boolean",
+											"default": true
+										},
+										"filters":{
+											"$ref": "#/definitions/filters"
+										},
+										"min_activation_range":{
+											"type": "number",
+											"default": 32.0
+										},
+										"max_activation_range":{
+											"type": "number",
+											"default": 1.0
+										},
+										"particle_color":{
+											"type": "integer",
+											"default": 0
+										},
+										"start_sound_event":{
+											"type": "string"
+										},
+										"weight":{
+											"type": "number",
+											"default": 0.0
+										},
+										"sequence":{
+											"type": [
+												"array",
+												"object"
+											],
+											"properties": {
+												"base_delay":{
+													"type": "number",
+													"default": 0.0
+												},
+												"delay_per_summon":{
+													"type": "number",
+													"default": 0.0
+												},
+												"entity_lifespan":{
+													"type": "number",
+													"default": -1.0
+												},
+												"entity_type": {
+													"type": "string",
+													"$ref": "#/definitions/library/entities"
+												},
+												"num_entities_spawned":{
+													"type": "integer",
+													"default": 1
+												},
+												"shape":{
+													"type": "string",
+													"default": "line",
+													"enum": [
+														"line",
+														"circle"
+													]
+												},
+												"size":{
+													"type": "number",
+													"default": 1.0
+												},
+												"sound_event":{
+													"type": "string"
+												},
+												"summon_cap":{
+													"type": "integer",
+													"default": 1
+												},
+												"summon_cap_radius":{
+													"type": "number",
+													"default": 0.0
+												},
+												"target": {
+													"type": "string",
+													"$ref": "#/definitions/library/filters/subjects",
+													"description": "The target of the spell. This is where the spell will start (line will start here, circle will be centered here)"
+												}
+											},
+											"items": {
+												"properties": {
+													"base_delay":{
+														"type": "number",
+														"default": 0.0
+													},
+													"delay_per_summon":{
+														"type": "number",
+														"default": 0.0
+													},
+													"entity_lifespan":{
+														"type": "number",
+														"default": -1.0
+													},
+													"entity_type": {
+														"type": "string",
+														"$ref": "#/definitions/library/entities"
+													},
+													"num_entities_spawned":{
+														"type": "integer",
+														"default": 1
+													},
+													"shape":{
+														"type": "string",
+														"default": "line",
+														"enum": [
+															"line",
+															"circle"
+														]
+													},
+													"size":{
+														"type": "number",
+														"default": 1.0
+													},
+													"sound_event":{
+														"type": "string"
+													},
+													"summon_cap":{
+														"type": "integer",
+														"default": 1
+													},
+													"summon_cap_radius":{
+														"type": "number",
+														"default": 0.0
+													},
+													"target": {
+														"type": "string",
+														"$ref": "#/definitions/library/filters/subjects",
+														"description": "The target of the spell. This is where the spell will start (line will start here, circle will be centered here)"
+													}
+												}
+											}
+										}
 									}
 								}
-							}
 							}
 						}
 					},
