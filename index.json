@@ -4714,8 +4714,7 @@
 							},
 							"summon_choices": {
 								"type": [
-									"array",
-									"object"
+									"array"
 								],
 								"properties": {
 									"cast_duration":{
