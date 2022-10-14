@@ -25,7 +25,8 @@
 						"1.17",
 						"1.18",
 						"1.18.10",
-						"1.19"
+						"1.19",
+						"1.19.30"
 					]
 				},
 				"minecraft:entity": {
@@ -273,6 +274,15 @@
 						}
 					},
 					"properties": {}
+				},
+				"properties": {
+					"type": "object",
+					"patternProperties": {
+						"^.*$": {
+							"$ref": "#/definitions/actor_properties"
+						}
+					},
+					"title": "Actor Properties"
 				}
 			}
 		},
@@ -322,6 +332,128 @@
 				}
 			}
 		},
+		"actor_properties":{
+			"title": "properties",
+			"properties": {
+				"type": {
+					"enum": [
+						"int",
+						"float",
+						"bool",
+						"enum"
+					]
+				},
+				"client_sync": {
+					"type": "boolean"
+				}
+			},
+			"allOf": [
+				{
+					"if": {
+						"properties": {
+							"type": {
+								"anyOf": [
+									{
+										"const": "int"
+									}
+								]
+							}
+						}
+					},
+					"then": {
+						"properties": {
+							"range": {
+								"type": [
+									"array"
+								],
+								"items": {
+									"type": "number"
+								}
+							},
+							"default": {
+								"type": ["number"]
+							}
+						}
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"type": {
+								"anyOf": [
+									{
+										"const": "float"
+									}
+								]
+							}
+						}
+					},
+					"then": {
+						"properties": {
+							"range": {
+								"type": [
+									"array"
+								],
+								"items": {
+									"type": "number"
+								}
+							},
+							"default": {
+								"type": ["number","string"]
+							}
+						}
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"type": {
+								"anyOf": [
+									{
+										"const": "bool"
+									}
+								]
+							}
+						}
+					},
+					"then": {
+						"properties": {
+							"default": {
+								"type": ["boolean"]
+							}
+						}
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"type": {
+								"anyOf": [
+									{
+										"const": "enum"
+									}
+								]
+							}
+						}
+					},
+					"then": {
+						"properties": {
+							"range": {
+								"type": [
+									"array"
+								],
+								"items": {
+									"type": ["string","number"]
+								}
+							},
+							"default": {
+								"type": ["string","number"]
+							}
+						}
+					}
+				}
+			]
+		},
 		"event": {
 			"title": "event",
 			"type": "object",
@@ -331,6 +463,9 @@
 				},
 				"remove": {
 					"$ref": "#/definitions/event_remove"
+				},
+				"set_property": {
+					"$ref": "#/definitions/event_set_property"
 				},
 				"run_command": {
 					"$ref": "#/definitions/event_run_command"
@@ -363,6 +498,16 @@
 				}
 			}
 		},
+		"event_set_property": {
+			"title": "Sets Properties",
+			"type": "object",
+			"patternProperties": {
+				"^.*$": {
+					"type": ["number","string"]
+				}
+			},
+			"properties": {}
+		},
 		"event_run_command": {
 			"title": "Run Command",
 			"type": "object",
@@ -391,6 +536,9 @@
 					},
 					"remove": {
 						"$ref": "#/definitions/event_remove"
+					},
+					"set_property": {
+						"$ref": "#/definitions/event_set_property"
 					},
 					"run_command": {
 						"$ref": "#/definitions/event_run_command"
@@ -421,6 +569,9 @@
 					},
 					"remove": {
 						"$ref": "#/definitions/event_remove"
+					},
+					"set_property": {
+						"$ref": "#/definitions/event_set_property"
 					},
 					"run_command": {
 						"$ref": "#/definitions/event_run_command"
@@ -533,6 +684,35 @@
 					"then": {
 						"properties": {
 							"value": {
+								"type": "string"
+							}
+						}
+					}
+				},
+				{
+					"if": {
+						"properties": {
+							"test": {
+								"anyOf": [
+									{
+										"const": "int_property"
+									},
+									{
+										"const": "bool_property"
+									},
+									{
+										"const": "float_property"
+									},
+									{
+										"const": "enum_property"
+									}
+								]
+							}
+						}
+					},
+					"then": {
+						"properties": {
+							"domain": {
 								"type": "string"
 							}
 						}
@@ -716,6 +896,11 @@
 				"tests": {
 					"enum": [
 						"clock_time",
+						"bool_property",
+						"enum_property",
+						"float_property",
+						"int_property",
+						"has_property",
 						"has_ability",
 						"has_biome_tag",
 						"has_component",
