@@ -503,7 +503,7 @@
 			"type": "object",
 			"patternProperties": {
 				"^.*$": {
-					"type": ["number","string"]
+					"type": ["number","string","boolean"]
 				}
 			},
 			"properties": {}
