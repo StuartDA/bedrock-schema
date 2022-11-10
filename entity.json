@@ -4583,7 +4583,6 @@
 								"description": "Time in seconds between attacks"
 							},
 							"entity_types": {
-								"type": ["array", "object"],
 								"$ref": "#/definitions/library/components/values/entity_types",
 								"description": "List of entity types that this mob considers valid targets"
 							},
@@ -4633,7 +4632,6 @@
 									"description": "Time in seconds between attacks"
 								},
 								"entity_types": {
-									"type": ["array", "object"],
 									"$ref": "#/definitions/library/components/values/entity_types",
 									"description": "List of entity types that this mob considers valid targets"
 								},
