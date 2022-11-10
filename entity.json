@@ -696,7 +696,7 @@
 								"type": "string"
 							},
 							"value": {
-								"type": "string"
+								"type": ["boolean", "string"]
 							}
 						}
 					}
