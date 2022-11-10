@@ -358,10 +358,7 @@
 								}
 							},
 							"default": {
-								"type": [
-									"string",
-									"number"
-								]
+								"type": ["string", "number"]
 							}
 						}
 					}
@@ -387,7 +384,7 @@
 								}
 							},
 							"default": {
-								"type": ["number","string"]
+								"type": ["number", "string"]
 							}
 						}
 					}
@@ -489,7 +486,7 @@
 			"type": "object",
 			"patternProperties": {
 				"^.*$": {
-					"type": ["number","string", "boolean"]
+					"type": ["number", "string", "boolean"]
 				}
 			},
 			"properties": {}
@@ -4586,6 +4583,7 @@
 								"description": "Time in seconds between attacks"
 							},
 							"entity_types": {
+								"type": ["array", "object"],
 								"$ref": "#/definitions/library/components/values/entity_types",
 								"description": "List of entity types that this mob considers valid targets"
 							},
@@ -4623,6 +4621,57 @@
 							"within_radius": {
 								"$ref": "#/definitions/library/components/values/within_radius",
 								"description": "Distance in blocks that the target can be within to launch an attack"
+							}
+						},
+						"items": {
+							"properties": {
+								"priority": {
+									"$ref": "#/definitions/library/components/values/priority"
+								},
+								"attack_interval": {
+									"$ref": "#/definitions/library/components/values/attack_interval",
+									"description": "Time in seconds between attacks"
+								},
+								"entity_types": {
+									"type": ["array", "object"],
+									"$ref": "#/definitions/library/components/values/entity_types",
+									"description": "List of entity types that this mob considers valid targets"
+								},
+								"must_reach": {
+									"$ref": "#/definitions/library/components/values/must_reach",
+									"description": "If true, only entities that this mob can path to can be selected as targets"
+								},
+								"must_see": {
+									"$ref": "#/definitions/library/components/values/must_see",
+									"description": "If true, only entities in this mob's viewing range can be selected as targets"
+								},
+								"must_see_forget_duration": {
+									"$ref": "#/definitions/library/components/values/must_see_forget_duration",
+									"description": "Determines the amount of time in seconds that this mob will look for a target before forgetting about it and looking for a new one when the target isn't visible any more"
+								},
+								"persist_time": {
+									"$ref": "#/definitions/library/components/values/persist_time",
+									"description": "Time (in seconds) this entity can continue attacking the target after the target is no longer valid."
+								},
+								"reselect_targets": {
+									"$ref": "#/definitions/library/components/values/reselect_targets",
+									"description": "f true, the target will change to the current closest entity whenever a different entity is closer"
+								},
+								"scan_interval": {
+									"$ref": "#/definitions/library/components/values/scan_interval",
+									"description": "How many ticks to wait between scanning for a target."
+								},
+								"set_persistent": {
+									"$ref": "#/definitions/library/components/values/set_persistent"
+								},
+								"target_search_height": {
+									"$ref": "#/definitions/library/components/values/target_search_height",
+									"description": "Height in blocks to search for a target mob. -1.0 means the height does not matter."
+								},
+								"within_radius": {
+									"$ref": "#/definitions/library/components/values/within_radius",
+									"description": "Distance in blocks that the target can be within to launch an attack"
+								}
 							}
 						}
 					},
@@ -4968,7 +5017,10 @@
 													"$ref": "#/definitions/library/entities"
 												},
 												"num_entities_spawned": {
-													"type": ["integer", "string"],
+													"type": [
+														"integer",
+														"string"
+													],
 													"default": 1
 												},
 												"shape": {
@@ -4987,7 +5039,10 @@
 													"type": "string"
 												},
 												"summon_cap": {
-													"type": ["integer", "string"],
+													"type": [
+														"integer",
+														"string"
+													],
 													"default": 1
 												},
 												"summon_cap_radius": {
@@ -5070,7 +5125,10 @@
 													"$ref": "#/definitions/library/entities"
 												},
 												"num_entities_spawned": {
-													"type": ["integer", "string"],
+													"type": [
+														"integer",
+														"string"
+													],
 													"default": 1
 												},
 												"shape": {
@@ -5089,7 +5147,10 @@
 													"type": "string"
 												},
 												"summon_cap": {
-													"type": ["integer", "string"],
+													"type": [
+														"integer",
+														"string"
+													],
 													"default": 1
 												},
 												"summon_cap_radius": {
@@ -5133,7 +5194,10 @@
 														"$ref": "#/definitions/library/entities"
 													},
 													"num_entities_spawned": {
-														"type": ["integer", "string"],
+														"type": [
+															"integer",
+															"string"
+														],
 														"default": 1
 													},
 													"shape": {
@@ -5155,7 +5219,10 @@
 														"type": "string"
 													},
 													"summon_cap": {
-														"type": ["integer", "string"],
+														"type": [
+															"integer",
+															"string"
+														],
 														"default": 1
 													},
 													"summon_cap_radius": {
@@ -5261,7 +5328,7 @@
 						"description": "Defines an entity's melee attack and any additional effects on it.",
 						"properties": {
 							"damage": {
-								"type": ["number","string", "array"],
+								"type": ["number", "string", "array"],
 								"description": "Range of the random amount of damage the melee attack deals. A negative value can heal the entity instead of hurting it"
 							},
 							"effect_name": {
@@ -6193,7 +6260,11 @@
 										"type": "object",
 										"properties": {
 											"damage": {
-												"type": ["number","string", "array"],
+												"type": [
+													"number",
+													"string",
+													"array"
+												],
 												"minItems": 2,
 												"maxItems": 2,
 												"items": {
@@ -6345,7 +6416,10 @@
 													"minItems": 3,
 													"maxItems": 3,
 													"items": {
-														"type": ["number", "string"]
+														"type": [
+															"number",
+															"string"
+														]
 													}
 												},
 												"min_rider_count": {
@@ -7007,6 +7081,7 @@
 						}
 					},
 					"entity_types": {
+						"type": "object",
 						"properties": {
 							"filters": {
 								"$ref": "#/definitions/filters",
