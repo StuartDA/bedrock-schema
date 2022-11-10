@@ -7110,6 +7110,39 @@
 								"default": 1.0,
 								"description": "Multiplier for the walking speed. A value of 1.0 means the speed is unchanged"
 							}
+						},
+						"items": {
+							"properties": {
+								"filters": {
+									"$ref": "#/definitions/filters",
+									"description": "Conditions that make this entry in the list valid"
+								},
+								"max_dist": {
+									"type": ["number", "string"],
+									"default": 16,
+									"description": "Maximum distance this mob can be away to be a valid choice"
+								},
+								"must_see": {
+									"type": "boolean",
+									"default": false,
+									"description": "If true, the mob has to be visible to be a valid choice"
+								},
+								"must_see_forget_duration": {
+									"type": ["number", "string"],
+									"default": 3.0,
+									"description": "Determines the amount of time in seconds that this mob will look for a target before forgetting about it and looking for a new one when the target isn't visible any more"
+								},
+								"sprint_speed_multiplier": {
+									"type": ["number", "string"],
+									"default": 1.0,
+									"description": "Multiplier for the running speed. A value of 1.0 means the speed is unchanged"
+								},
+								"walk_speed_multiplier": {
+									"type": ["number", "string"],
+									"default": 1.0,
+									"description": "Multiplier for the walking speed. A value of 1.0 means the speed is unchanged"
+								}
+							}
 						}
 					}
 				}
