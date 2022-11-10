@@ -7079,7 +7079,7 @@
 						}
 					},
 					"entity_types": {
-						"type": "object",
+						"type": "array",
 						"properties": {
 							"filters": {
 								"$ref": "#/definitions/filters",
