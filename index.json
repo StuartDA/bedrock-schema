@@ -694,6 +694,9 @@
 						"properties": {
 							"domain": {
 								"type": "string"
+							},
+							"value": {
+								"type": "string"
 							}
 						}
 					}
