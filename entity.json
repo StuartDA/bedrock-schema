@@ -507,7 +507,7 @@
 		},
 		"event_sequence": {
 			"title": "Sequence",
-			"type": "array",
+			"type": ["array", "object"],
 			"items": {
 				"type": "object",
 				"properties": {
