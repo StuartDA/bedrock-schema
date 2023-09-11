@@ -307,13 +307,16 @@
 				"minecraft:transformed": {
 					"$ref": "#/definitions/event"
 				},
-				"noxcrew:add_": {
+				"noxcrew:add.": {
 					"$ref": "#/definitions/event"
 				},
-				"noxcrew:remove_": {
+				"noxcrew:set.": {
 					"$ref": "#/definitions/event"
 				},
-				"noxcrew:to_": {
+				"noxcrew:remove.": {
+					"$ref": "#/definitions/event"
+				},
+				"noxcrew:to.": {
 					"$ref": "#/definitions/event"
 				},
 				"noxcrew:": {
@@ -423,7 +426,7 @@
 					},
 					"then": {
 						"properties": {
-							"range": {
+							"values": {
 								"type": ["array"],
 								"items": {
 									"type": ["number", "string"]
@@ -5678,7 +5681,52 @@
 						"type": "object"
 					},
 					"minecraft:explode": {
-						"type": "object"
+						"type": "object",
+						"properties": {
+							"breaks_blocks": {
+								"type": "boolean",
+								"default": true,
+								"description": "If true, the explosion will destroy blocks in the explosion radius."
+							},
+							"causes_fire": {
+								"type": "boolean",
+								"default": false,
+								"description": "If true, blocks in the explosion radius will be set on fire."
+							},
+							"destroy_affected_by_griefing": {
+								"type": "boolean",
+								"default": false,
+								"description": "If true, whether the explosion breaks blocks is affected by the mob griefing game rule."
+							},
+							"fire_affected_by_griefing": {
+								"type": "boolean",
+								"default": false,
+								"description": "If true, whether the explosion causes fire is affected by the mob griefing game rule."
+							},
+							"fuse_length": {
+								"type": ["array", "number"],
+								"default": [0.0, 0.0],
+								"description": "The range for the random amount of time the fuse will be lit before exploding; a negative value means the explosion will be immediate.",
+								"items": {
+									"type": ["number", "string"]
+								}
+							},
+							"fuse_lit": {
+								"type": "boolean",
+								"default": false,
+								"description": "If true, the fuse is already lit when this component is added to the entity."
+							},
+							"max_resistance": {
+								"$ref": "#/definitions/library/components/values/value_decimal",
+								"default": 3.40282e+38,
+								"description": "A blocks explosion resistance will be capped at this value when an explosion occurs."
+							},
+							"power": {
+								"$ref": "#/definitions/library/components/values/value_decimal",
+								"default": 3,
+								"description": "The radius of the explosion in blocks and the amount of damage the explosion deals."
+							}
+						}
 					},
 					"minecraft:fire_immune": {
 						"type": "object"
@@ -6112,6 +6160,9 @@
 						"$ref": "#/definitions/library/components/values/trigger"
 					},
 					"minecraft:on_wake_with_owner": {
+						"type": "object"
+					},
+					"minecraft:out_of_control": {
 						"type": "object"
 					},
 					"minecraft:peek": {
