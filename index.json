@@ -255,7 +255,7 @@
 					"type": "object",
 					"properties": {
 						"animate": {
-							"type": "array",
+							"type": ["object", "array"],
 							"items": {}
 						}
 					}
