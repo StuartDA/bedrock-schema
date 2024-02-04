@@ -514,8 +514,8 @@
 				"set_property": {
 					"$ref": "#/definitions/event_set_property"
 				},
-				"run_command": {
-					"$ref": "#/definitions/event_run_command"
+				"queue_command": {
+					"$ref": "#/definitions/event_queue_command"
 				},
 				"sequence": {
 					"$ref": "#/definitions/event_sequence"
@@ -559,7 +559,7 @@
 			},
 			"properties": {}
 		},
-		"event_run_command": {
+		"event_queue_command": {
 			"title": "Run Command",
 			"type": "object",
 			"properties": {
@@ -594,8 +594,8 @@
 					"set_property": {
 						"$ref": "#/definitions/event_set_property"
 					},
-					"run_command": {
-						"$ref": "#/definitions/event_run_command"
+					"queue_command": {
+						"$ref": "#/definitions/event_queue_command"
 					},
 					"filters": {
 						"$ref": "#/definitions/filters"
@@ -630,8 +630,8 @@
 					"set_property": {
 						"$ref": "#/definitions/event_set_property"
 					},
-					"run_command": {
-						"$ref": "#/definitions/event_run_command"
+					"queue_command": {
+						"$ref": "#/definitions/event_queue_command"
 					},
 					"sequence": {
 						"$ref": "#/definitions/event_sequence"
