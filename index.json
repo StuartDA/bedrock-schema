@@ -5037,16 +5037,24 @@
             "type": "object",
             "properties": {
               "attack_interval": {
-                "type": [
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "number",
-                    "string"
-                  ]
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "$ref": "#/definitions/library/components/values/value"
+                  },
+                  "min": {
+                    "type": [
+                      "integer",
+                      "string"
+                    ]
+                  },
+                  "max": {
+                    "type": [
+                      "integer",
+                      "string"
+                    ]
+                  }
                 },
-                "default": 0,
                 "description": "Takes a float range for attack_interval instead of attack_interval_min and attack_interval_max for versions 1.26.40 and newer. Consistent reload-time (in seconds), when not using a charged shot. Does not scale with target-distance."
               },
               "attack_radius": {
