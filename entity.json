@@ -4739,19 +4739,12 @@
             "type": "object",
             "properties": {
               "attack_interval": {
-                "type": ["number", "string"],
+                "type": ["array"],
+                "items": {
+                  "type": ["number", "string"]
+                },
                 "default": 0,
-                "description": "Alternative to \"attack_interval_min\" & \"attack_interval_max\". Consistent reload-time (in seconds), when not using a charged shot. Does not scale with target-distance."
-              },
-              "attack_interval_max": {
-                "type": ["number", "string"],
-                "default": 0,
-                "description": "Maximum bound for reload-time range (in seconds), when not using a charged shot. Reload-time range scales with target-distance."
-              },
-              "attack_interval_min": {
-                "type": ["number", "string"],
-                "default": 0,
-                "description": "Minimum bound for reload-time range (in seconds), when not using a charged shot. Reload-time range scales with target-distance."
+                "description": "Takes a float range for attack_interval instead of attack_interval_min and attack_interval_max for versions 1.26.40 and newer. Consistent reload-time (in seconds), when not using a charged shot. Does not scale with target-distance."
               },
               "attack_radius": {
                 "type": ["number", "string"],
